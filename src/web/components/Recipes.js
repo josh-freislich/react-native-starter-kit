@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Panel } from '@sencha/ext-modern';
 import Error from './Error';
 
 const RecipeListing = ({ error, loading, recipes }) => {
@@ -49,6 +50,7 @@ const RecipeListing = ({ error, loading, recipes }) => {
           <p>
             The following data is read directly from Firebase.
           </p>
+          <Panel>Test Panel</Panel>
         </Col>
       </Row>
       <Row className={loading ? 'content-loading' : ''}>

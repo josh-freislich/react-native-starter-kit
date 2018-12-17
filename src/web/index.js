@@ -1,9 +1,9 @@
 /* global document */
 import React from 'react';
-import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/es/integration/react';
+import { launch } from '@sencha/ext-react';
 
 import configureStore from '../store/index';
 import registerServiceWorker from './register-service-worker';
@@ -18,17 +18,15 @@ require('./styles/style.scss');
 const { persistor, store } = configureStore();
 // persistor.purge(); // Debug to clear persist
 
-const rootElement = document.getElementById('root');
-
 const Root = () => (
-  <Provider store={store}>
-    <PersistGate loading={<Loading />} persistor={persistor}>
-      <Router>
-        <Routes />
-      </Router>
-    </PersistGate>
-  </Provider>
+    <Provider store={store}>
+        <PersistGate loading={<Loading />} persistor={persistor}>
+            <Router>
+                <Routes />
+            </Router>
+        </PersistGate>
+    </Provider>
 );
 
-render(<Root />, rootElement);
+launch(<Root />);
 registerServiceWorker();
